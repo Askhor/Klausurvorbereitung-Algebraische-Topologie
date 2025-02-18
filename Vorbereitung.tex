@@ -1,0 +1,138 @@
+% !TeX spellcheck = de_DE
+
+\documentclass{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage{unicode-helper}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{microtype}
+\usepackage{tikz-cd}
+\usepackage[english]{babel}
+\usepackage{amsthm}
+\usepackage{mathtools}
+\usepackage{braket}
+\usepackage{csquotes}
+\usepackage[backend=biber,style=numeric]{biblatex}
+\usepackage[pdftex]{hyperref}
+\usepackage{cleveref}
+
+\newcommand{\titlevar}{Klausurvorbereitung Algebraische Topologie}
+\newcommand{\authorvar}{Günthner}
+\newcommand{\datevar}{Winter 2024}
+\title{\titlevar}
+\author{\authorvar}
+\date{\datevar}
+\hypersetup{
+	pdftitle=\titlevar,
+	pdfauthor=\authorvar,
+	pdfcreationdate=\datevar,
+}
+\setlength{\parindent}{0pt}
+
+\newlength{\halflength}
+\setlength{\halflength}{100pt}
+
+\newcommand{\card}[1]{\#{#1}}
+\newcommand{\inv}{^{-1}}
+\newcommand{\ringunits}[1]{{#1}^{\mathclap{\rule{2.5pt}{0pt}\times}\rule{0.2em}{0pt}}}
+\newcommand{\ringunitsb}[1]{\ringunits{\left({#1}{\vphantom{p^k}}\right)}}
+\newcommand{\ordgroup}[1]{\ord_{\rule{0pt}{9pt}\mathclap{#1}}}
+\newcommand{\ordadd}[1]{\ordgroup{ℤ/{#1}ℤ}}
+\newcommand{\ordmult}[1]{\ord_{\rule{0pt}{8pt}{
+			\settowidth{\halflength}{$\scriptstyle \left({ℤ/{#1}ℤ}{\vphantom{p^k}}\right)$}
+			\mathrlap{\rule{-0.5 \halflength}{0pt}\ringunitsb{ℤ/{#1}ℤ}}
+}}}
+\newcommand{\ordker}[1]{\ordgroup{\ker(\mathrlap{#1)}}}
+\newcommand{\frakB}{\mathfrak{B}}
+\newcommand{\frakc}{\mathfrak{c}}
+\newcommand{\bigbarn}[1]{\big({#1}\big)}
+\newcommand{\Bigbarn}[1]{\Big({#1}\Big)}
+\newcommand{\spospart}[1]{ {(#1)} _ {\rule{1.5pt}{0pt}\mathclap +} }
+\newcommand{\pospart}[1]{{ {\bigbarn{#1}} _ {\mathclap +} }}
+\newcommand{\tritem}{\item[$\blacktriangleright$]}
+\newcommand{\gspan}[1]{<#1>}
+\DeclareMathOperator{\ordb}{ord}
+\DeclareMathOperator{\img}{img}
+\newcommand{\ord}{\mathop{\ordb}\limits}
+\newcommand{\powerset}{\mathcal{P}}
+\DeclareMathOperator{\lcm}{lcm}
+\DeclareMathOperator{\id}{id}
+\newenvironment{pg}{
+	
+}{
+	
+	\medskip
+	
+}
+\newcommand{\maybeequal}{\stackrel{?}{=}}
+\newcommand{\mapdefinition}[5]{
+	\begin{center}
+		\begin{tabular}{llll}
+			$#1:$ 	&	$#2$ & $→$ & $#3$ 	\\
+			&	$#4$ & $↦$ & $#5$	\\
+		\end{tabular}
+	\end{center}
+}
+\newcommand{\padlr}[2]{\rule{#2}{0pt} {#1} \rule{#2}{0pt}}
+\newcommand{\buildset}[2]{\set{{#1} \ : \ {#2}}}
+
+\newtheorem{definition}{Definition}
+\newtheorem{lemma}{Lemma}
+\newtheorem{theorem}{Theorem}
+\newtheorem{conjecture}{Conjecture}
+
+\crefname{lemma}{Lemma}{Lemmata}
+\crefname{equation}{equation}{equations}
+\crefname{theorem}{Theorem}{Theorems}
+\crefname{definition}{Definition}{Definitions}
+
+\begin{document}
+	\maketitle
+	
+	\section{Singuläre Homologie}
+
+	% https://q.uiver.app/#q=WzAsMyxbMSwwLCJDX2soWCkiXSxbMiwwLCJDX3trLTF9KFgpIl0sWzAsMCwiQ197aysxfShYKSJdLFswLDEsImRfayJdLFsyLDAsImRfe2srMX0iXV0=
+	\[\begin{tikzcd}
+		{C_{k+1}(X)} & {C_k(X)} & {C_{k-1}(X)}
+		\arrow["{d_{k+1}}", from=1-1, to=1-2]
+		\arrow["{d_k}", from=1-2, to=1-3]
+	\end{tikzcd}\]
+	
+	\begin{definition}
+		\begin{equation*}
+			H_k(X) = \ker(d_k) / \img(d_{k+1})
+		\end{equation*}
+	\end{definition}
+	
+	\subsection{Homologie vom Punkt}
+	
+	\begin{equation*}
+		C_k(*) = ℝ · \text{konstante Abb.}
+	\end{equation*}
+	\begin{equation*}
+		\img(d_k) = \begin{cases}
+			ℝ & \text{falls $k$ gerade}\\
+			0 & \text{falls $k$ ungerade}\\
+		\end{cases}	
+	\end{equation*}
+	\begin{equation*}
+		\ker(d_k) = \begin{cases}
+			ℝ & \text{falls $k$ ungerade}\\
+			0 & \text{falls $k$ gerade}\\
+		\end{cases}
+	\end{equation*}
+	Für $k≥1$:
+	\begin{equation*}
+		H_k(*) = \ker(d_k) / \img(d_{k+1}) = 0
+	\end{equation*}
+	Für $k=0$:
+	\begin{equation*}
+		H_0(*) = \ker(d_k) / \img(d_{k+1}) = 0/0 = 0
+	\end{equation*}
+	
+	\subsection{Homotopie-Invarianz}
+	
+	Seien $X, Y$ topologische Räume
+\end{document}
