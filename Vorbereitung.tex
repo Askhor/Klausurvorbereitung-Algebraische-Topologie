@@ -59,13 +59,6 @@
 \newcommand{\powerset}{\mathcal{P}}
 \DeclareMathOperator{\lcm}{lcm}
 \DeclareMathOperator{\id}{id}
-\newenvironment{pg}{
-	
-}{
-	
-	\medskip
-	
-}
 \newcommand{\maybeequal}{\stackrel{?}{=}}
 \newcommand{\mapdefinition}[5]{
 	\begin{center}
@@ -134,5 +127,13 @@
 	
 	\subsection{Homotopie-Invarianz}
 	
-	Seien $X, Y$ topologische Räume
+	Seien $X, Y$ topologische Räume und $g: X→Y, h: Y→X$ mit
+	\begin{equation*}
+		g ∘ h \sim \id \text{ and } h∘g \sim \id
+	\end{equation*}
+	
+	Zeigen wir, dass
+	\begin{equation*}
+		g∘h \sim \id ⇒ (g∘h)_* = \id
+	\end{equation*}
 \end{document}
