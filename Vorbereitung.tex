@@ -14,7 +14,6 @@
 \usepackage{mathtools}
 \usepackage{braket}
 \usepackage{csquotes}
-\usepackage[backend=biber,style=numeric]{biblatex}
 \usepackage[pdftex]{hyperref}
 \usepackage{cleveref}
 
@@ -155,4 +154,36 @@
 	\end{tikzcd}\]
 	
 	Mit $f-g = dH + Hd$
+	
+	\subsection{Mayer-Vietoris}
+	
+	Sei $U ∪ V$ ein topologischer Raum mit $U,V$ offen. Versuchen wir folgende exakte Sequenz zu zeigen:
+	% https://q.uiver.app/#q=WzAsNixbMiwwLCJIX2soVeKIqVYpIl0sWzMsMCwiSF9rKFUpIFxcb3BsdXMgSF9rKFYpIl0sWzQsMCwiSF9rKFXiiKpWKSJdLFsxLDAsIkhfe2srMX0oVeKIqlYpIl0sWzAsMF0sWzUsMF0sWzAsMV0sWzEsMl0sWzMsMF0sWzQsMywiXFxjZG90cyIsMSx7ImxhYmVsX3Bvc2l0aW9uIjoxMH1dLFsyLDUsIlxcY2RvdHMiLDEseyJsYWJlbF9wb3NpdGlvbiI6OTB9XV0=
+	\[\begin{tikzcd}
+		{} & {H_{k+1}(U∪V)} & {H_k(U∩V)} & {H_k(U) \oplus H_k(V)} & {H_k(U∪V)} & {}
+		\arrow["\cdots"{description, pos=0.1}, from=1-1, to=1-2]
+		\arrow[from=1-2, to=1-3]
+		\arrow[from=1-3, to=1-4]
+		\arrow[from=1-4, to=1-5]
+		\arrow["\cdots"{description, pos=0.9}, from=1-5, to=1-6]
+	\end{tikzcd}\]
+	Hierfür werden wir folgende isomorphe Sequenz zeigen:
+	% https://q.uiver.app/#q=WzAsNixbMiwwLCJIX2soVeKIqVYpIl0sWzMsMCwiSF9rKFUpIFxcb3BsdXMgSF9rKFYpIl0sWzQsMCwiSF9rKFUrVikiXSxbMSwwLCJIX3trKzF9KFUrVikiXSxbMCwwXSxbNSwwXSxbMCwxXSxbMSwyXSxbMywwXSxbNCwzLCJcXGNkb3RzIiwxLHsibGFiZWxfcG9zaXRpb24iOjEwfV0sWzIsNSwiXFxjZG90cyIsMSx7ImxhYmVsX3Bvc2l0aW9uIjo5MH1dXQ==
+	\[\begin{tikzcd}
+		{} & {H_{k+1}(U+V)} & {H_k(U∩V)} & {H_k(U) \oplus H_k(V)} & {H_k(U+V)} & {}
+		\arrow["\cdots"{description, pos=0.1}, from=1-1, to=1-2]
+		\arrow[from=1-2, to=1-3]
+		\arrow[from=1-3, to=1-4]
+		\arrow[from=1-4, to=1-5]
+		\arrow["\cdots"{description, pos=0.9}, from=1-5, to=1-6]
+	\end{tikzcd}\]
+	Dass können wir unter Verwendung des Schlangenlemmas (?) und folgender kurzen exakten Sequenz zeigen:
+	% https://q.uiver.app/#q=WzAsNSxbMSwwLCJDX2soVeKIqVYpIl0sWzIsMCwiQ19rKFUpIFxcb3BsdXMgQ19rKFYpIl0sWzMsMCwiQ19rKFUrVikiXSxbMCwwLCIwIl0sWzQsMCwiMCJdLFswLDFdLFsxLDJdLFszLDBdLFsyLDRdXQ==
+	\[\begin{tikzcd}
+		0 & {C_k(U∩V)} & {C_k(U) \oplus C_k(V)} & {C_k(U+V)} & 0
+		\arrow[from=1-1, to=1-2] 
+		\arrow[from=1-2, to=1-3]
+		\arrow[from=1-3, to=1-4]
+		\arrow[from=1-4, to=1-5]
+	\end{tikzcd}\]
 \end{document}
