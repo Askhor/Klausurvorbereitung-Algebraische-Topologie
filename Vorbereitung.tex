@@ -15,6 +15,7 @@
 \usepackage{amsthm}
 \usepackage{mathtools}
 \usepackage{braket}
+%\usepackage{enumitem}
 \usepackage{csquotes}
 \usepackage[pdftex]{hyperref}
 \usepackage[\documentlanguage]{cleveref}
@@ -31,6 +32,8 @@
 	pdfcreationdate=\datevar,
 }
 \setlength{\parindent}{0pt}
+
+%\setlist{label=$\blacktriangleright$}
 
 \newlength{\halflength}
 \setlength{\halflength}{100pt}
@@ -85,6 +88,8 @@
 \begin{document}
 	\shorthandoff{"}
 	\maketitle
+
+	\tableofcontents
 	
 	\section{Singuläre Homologie}
 
@@ -218,15 +223,30 @@
 	Vorgehen: gleich wie in $\cref{sec:mvb1}$
 	
 	Wir versuchen also Exaktheit von folgender Kette zu zeigen:
-	% https://q.uiver.app/#q=WzAsNixbMCwwLCLOqV9rKFXiiKpWKSJdLFsxLDAsIs6pX2soVSkgXFxvcGx1cyDOqV9rKFYpIl0sWzIsMCwizqlfayhV4oipVikiXSxbMCwxLCLPiSJdLFsxLDEsIijPiSwgLc+JKSBcXCBcXCAoz4lfVSwgz4lfVikiXSxbMiwxLCLPiV9VICsgz4lfViJdLFswLDFdLFsxLDJdLFszLDQsIiIsMCx7InN0eWxlIjp7InRhaWwiOnsibmFtZSI6Im1hcHMgdG8ifX19XSxbNCw1LCIiLDAseyJzdHlsZSI6eyJ0YWlsIjp7Im5hbWUiOiJtYXBzIHRvIn19fV1d
-	\[\begin{tikzcd}[row sep=tiny]
+	% https://q.uiver.app/#q=WzAsNixbMCwwLCLOqV9rKFXiiKpWKSJdLFsxLDAsIs6pX2soVSkgXFxvcGx1cyDOqV9rKFYpIl0sWzIsMCwizqlfayhV4oipVikiXSxbMCwxLCLPiSJdLFsxLDEsIijPiSwgLc+JKSBcXCBcXCAoz4lfVSwgz4lfVikiXSxbMiwxLCLPiV9VICsgz4lfViJdLFswLDEsIs6xIl0sWzEsMiwizrIiXSxbMyw0LCIiLDAseyJzdHlsZSI6eyJ0YWlsIjp7Im5hbWUiOiJtYXBzIHRvIn19fV0sWzQsNSwiIiwwLHsic3R5bGUiOnsidGFpbCI6eyJuYW1lIjoibWFwcyB0byJ9fX1dXQ==
+	\[\begin{tikzcd}
 		{Ω_k(U∪V)} & {Ω_k(U) \oplus Ω_k(V)} & {Ω_k(U∩V)} \\
 		{ω} & {(ω, -ω) \ \ (ω_U, ω_V)} & {ω_U + ω_V}
-		\arrow[from=1-1, to=1-2]
-		\arrow[from=1-2, to=1-3]
+		\arrow["{α}", from=1-1, to=1-2]
+		\arrow["{β}", from=1-2, to=1-3]
 		\arrow[maps to, from=2-1, to=2-2]
 		\arrow[maps to, from=2-2, to=2-3]
-	\end{tikzcd}\]
+	\end{tikzcd}\]	
 	
-	
+	$α$ ist injektiv, denn sei $ω$ im Kern von $α$, dann folgt schon, dass $ω$ null auf $U$, $V$ und somit auch auf $U∪V$ ist.
+
+	TODO
+
+	\subsection{Homologie vom Torus}
+
+	Definieren wir den $n$-Torus als $\mathbb{T}^n = ℝ^n/ℤ^n$. Wir wollen nun mit Hilfe von De-Rahm Cohomologie zeigen, dass $b_k(\mathbb{T}^n) = \binom{n}{k}$. Dass machen wir in drei Schritten:
+	\begin{enumerate}
+		\item Wenn wir Differentialformen verschieben, dann bleibt die Homologieklasse gleich
+		\item Wenn wir dann eine Differentialform mittlen, dann bleibt die Homologieklasse wieder gleich
+		\item Nun gibt es für jede Homologieklasse immer einen konstanten Repräsentanten und wir können nun die Homologie mit dem Zielraum der Differentialformen identifizieren: $Λ^k(ℝ^n)$. Und das hat Dimension $\binom{n}{k}$
+	\end{enumerate}
+
+	\subsubsection{Verschieben lässt Homologieklasse gleich}
+	\subsubsection{Mitteln lässt Homologieklasse gleich}
+	\subsubsection{Isomorphie \texorpdfstring{$H^k(\mathbb{T}^n) \cong Λ^k(ℝ^n)$}{H^k(T^n) = Λ^k(ℝ^n)}}
 \end{document}
