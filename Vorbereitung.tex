@@ -74,6 +74,7 @@
 }
 \newcommand{\padlr}[2]{\rule{#2}{0pt} {#1} \rule{#2}{0pt}}
 \newcommand{\buildset}[2]{\set{{#1} \ : \ {#2}}}
+\DeclareMathOperator{\lspan}{span}
 
 \newtheorem{definition}{Definition}
 \newtheorem{lemma}{Lemma}
@@ -103,7 +104,26 @@
 
 	\begin{definition}[Kettenkomplex]
 		\begin{equation*}
-			C_k(X) = \set{Δ^k → X \text{ stetig}}
+			C_k(X) = \lspan\set{Δ^k → X \text{ stetig}}
+		\end{equation*}
+	\end{definition}
+
+	\begin{definition}[Randabbildung]
+		Wir definieren $d$ als linear und dann nur Basisvektoren $φ$:
+		\begin{equation*}
+			\begin{split}
+				d_k: C_k &→ C_{k-1} \\
+				φ &↦ Σ_{i=1}^{k} (-1)^i \underbrace{(p_i)^*}_{\text{pullback}} φ
+			\end{split}
+		\end{equation*}
+
+		mit 
+		
+		\begin{equation*}
+			\begin{split}
+				p_i: Δ_{k-1} &→ Δ_k \\
+				(x_j) &↦ (x_1, \dots, x_{j-1}, 0, x_{j}, \dots, x_{k-1})
+			\end{split}
 		\end{equation*}
 	\end{definition}
 
