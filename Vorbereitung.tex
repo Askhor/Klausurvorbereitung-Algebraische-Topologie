@@ -6,13 +6,13 @@
 \usepackage[utf8]{inputenc}
 \usepackage[\documentlanguage]{babel}
 \usepackage{unicode-helper}
+\usepackage{amsthm}
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{amsfonts}
 \usepackage{microtype}
 \usepackage{tikz-cd}
 \usepackage[T1]{fontenc}
-\usepackage{amsthm}
 \usepackage{mathtools}
 \usepackage{braket}
 %\usepackage{enumitem}
@@ -239,7 +239,8 @@
 
 	\subsection{Homologie vom Torus}
 
-	Definieren wir den $n$-Torus als $\mathbb{T}^n = ℝ^n/ℤ^n$. Wir wollen nun mit Hilfe von De-Rahm Cohomologie zeigen, dass $b_k(\mathbb{T}^n) = \binom{n}{k}$. Dass machen wir in drei Schritten:
+	\newcommand{\torus}{\mathbb{T}^n}
+	Definieren wir den $n$-Torus als $\torus = ℝ^n/ℤ^n$. Wir wollen nun mit Hilfe von De-Rahm Cohomologie zeigen, dass $b_k(\mathbb{T}^n) = \binom{n}{k}$. Dass machen wir in drei Schritten:
 	\begin{enumerate}
 		\item Wenn wir Differentialformen verschieben, dann bleibt die Homologieklasse gleich
 		\item Wenn wir dann eine Differentialform mittlen, dann bleibt die Homologieklasse wieder gleich
@@ -247,6 +248,29 @@
 	\end{enumerate}
 
 	\subsubsection{Verschieben lässt Homologieklasse gleich}
+
+	Was wollen wir zeigen? Sei $v ϵ \torus$, dann definieren wir $φ_v: \torus → \torus, x ↦ x + v$, nun hätten wir gerne, dass für $ωϵH^k(\torus)$ gilt: $[ω] = [(φ_v)^* ω]$.
+
+	\medskip
+
+	Hierfür definieren wir das Vektorfeld $v$, dass einfach überall konstant gleich $v$ ist. Der Fluss darüber ist dann einfach $φ_v^t$.
+
+	\medskip
+
+	Nun, wir wollen zeigen, dass $[ω] = [(φ_v^1)^* ω]$, also dass $(φ_v¹)^* ω - (φ_v⁰)^* ω ϵ \img d$.
+
+	\medskip
+
+	Als erstes erkennen wir, dass diese Differenz das gleiche ist wie das Integral über lokale Differenzen entlang einem bestimmten Pfad:
+	\begin{equation*}
+		\begin{split}
+			&\int_0^1 L_v (φ_v^t)^* ω dt \\
+			&= \int_0^1 (dι_v + ι_vd) (φ_v^t)^* ω dt \\
+			&= d \int_0^1 ι_v (φ_v^t)^* ω dt + \underbrace{\int_0^1 ι_v (φ_v^t)^* dw dt}_0
+		\end{split}
+	\end{equation*}
+	\qed
+
 	\subsubsection{Mitteln lässt Homologieklasse gleich}
-	\subsubsection{Isomorphie \texorpdfstring{$H^k(\mathbb{T}^n) \cong Λ^k(ℝ^n)$}{H^k(T^n) = Λ^k(ℝ^n)}}
+	\subsubsection{Isomorphie \texorpdfstring{$H^k(\torus) \cong Λ^k(ℝ^n)$}{H^k(T^n) = Λ^k(ℝ^n)}}
 \end{document}
