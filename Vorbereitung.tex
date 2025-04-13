@@ -16,6 +16,7 @@
 \usepackage{mathtools}
 \usepackage{braket}
 %\usepackage{enumitem}
+\usepackage[thinc]{esdiff}
 \usepackage{csquotes}
 \usepackage[pdftex]{hyperref}
 \usepackage[\documentlanguage]{cleveref}
@@ -231,6 +232,41 @@
 	\end{tikzcd}\]
 	
 	\section{De-Rahm Cohomologie}
+
+	\subsection{Definition}
+
+	\begin{definition}[Alternierende $k$-Formen]
+		\begin{equation*}
+			Λ^k(ℝ^n) = \set{(ℝ^n)^k → ℝ \text{ alternierend und $k$-linear}}
+		\end{equation*}
+	\end{definition}
+
+	Elemente von $Λ_k(ℝ^n)$ lassen sich darstellen als Summen von sowas wie $r_{i,j,\dots} \underbrace{dx_i \wedge dx_j \wedge \dots}_{\text{$k$-Mal}}$ mit $r_{i, j, \dots} ϵ ℝ$.
+
+	\begin{definition}[Differentialformen]
+		Sei $M$ eine glatte $n$-dimensionale Mannigfaltigkeit:
+		\begin{equation*}
+			Ω^k(M) = \set{M → Λ^k(ℝ^n) \text{ glatt}}
+		\end{equation*}
+	\end{definition}
+
+	\begin{definition}[Äußere Ableitung]
+		\begin{equation*}
+			\begin{split}
+				d_k: Ω^k(M) &→ Ω^{k+1}(M) \\
+				d_0(f) &= Σ_{i=1}^n \diffp{f}{{x_i}} dx_i \\
+				d_{k+l} (ω \wedge η) &= d_{k}ω \wedge η + (-1)^k ω \wedge d_lη
+			\end{split}
+		\end{equation*}
+	\end{definition}
+
+	Daraus können wir folgende Formel ableiten ($α_i$ sind Multiindices):
+	\begin{equation*}
+		\begin{split}
+			d_{|α_i|} Σ_{i=1}^{t} f_{α_i} dx_{α_i} &= Σ_{i=1}^t df_{α_i} dx_{α_i} \\
+			&= Σ_{i=1}^t (Σ_{j=1}^n \diffp{{f_{α_i}}}{{x_j}} dx_j) \wedge dx_{α_i}
+		\end{split}
+	\end{equation*}
 	
 	\subsection{Poincaré Lemma}
 	
